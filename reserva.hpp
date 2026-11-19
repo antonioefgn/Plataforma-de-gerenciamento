@@ -21,7 +21,7 @@ class Reserva{
             this->valor_bruto = valor_bruto;
             this->nome_plataforma = nome_plataforma;
         }
-        bool comflitoData( const Reserva& outra){
+        bool conflitoData( const Reserva& outra){
             return ((this->check_in <= outra.check_out) && (this->check_out >= outra.check_in));
         }
 
