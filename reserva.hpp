@@ -1,11 +1,13 @@
 #ifndef RESERVA_HPP
-#define RESERVA.HPP
+#define RESERVA_HPP
+
+#include <string>
 #include "data.hpp"
 #include "hospede.hpp"
 
 using namespace std;
 
-class Reserva{
+class Reserva {
     private:
         Data check_in;
         Data check_out;
@@ -21,16 +23,16 @@ class Reserva{
             this->valor_bruto = valor_bruto;
             this->nome_plataforma = nome_plataforma;
         }
-        bool conflitoData( const Reserva& outra){
-            return ((this->check_in <= outra.check_out) && (this->check_out >= outra.check_in));
-        }
 
-        Data get_check_in(void){ return check_in;}
-        Data get_check_out(void){ return check_out;}
-        Hospede hospede(void){ return hospede;}
-        float valor_bruto(void){ return valor_bruto;}
-        string nome_plataforma(void){ return nome_plataforma;}
+    bool conflitoData(const Reserva& outra) const {
+        return ((this->check_in <= outra.check_out) && (this->check_out >= outra.check_in));
+    }
 
+    Data get_check_in() const { return check_in; }
+    Data get_check_out() const { return check_out; }
+    Hospede get_hospede() const { return hospede; }
+    float get_valor_bruto() const { return valor_bruto; }
+    string get_nome_plataforma() const { return nome_plataforma; }
 };
 
 #endif
